@@ -1,45 +1,59 @@
-# Medicare Advantage vs Traditional Medicare: 2022 CSPUF Analysis
+# Medicare Advantage vs Traditional Medicare: Utilization Disparities (2022)
 
-This notebook analyzes data from the 2022 Consumer Survey of Medicare Beneficiaries (CSPUF) to compare key differences between Medicare Advantage (MA) and Traditional Medicare enrollees.
+Statistical analysis reveals Medicare Advantage patients receive 5.6 fewer medical visits annually than Traditional Medicare patients with identical health profiles.
+This repository contains a reproducible analysis of the 2022 Medicare Current Beneficiary Survey (MCBS) Cost Supplement data, comparing medical provider visit frequency between Medicare Advantage (MA) and Traditional Medicare (TM) enrollees.
 
-## Analysis Goals
-
-- Compare **out-of-pocket (OOP) costs** across income levels and plan types
-- Assess **utilization rates** for different healthcare services
-- Examine population **health status** using chronic condition counts
-- Analyze **age distribution** by plan type
-- Control for confounding by comparing service use **within chronic condition groups**
+## Key Findings
+- Medicare Advantage enrollees received **approximately 5.6 fewer medical provider visits per year** than their Traditional Medicare counterparts.
+- This result remains **statistically significant (p < 0.001)** after adjusting for:
+  - Number of chronic conditions
+  - Age group
+  - Sex
+  - Income level
+- Disparities persist **even among patients with multiple chronic conditions**, suggesting systemic differences in care delivery.
+- This finding affects approximately 27 million Medicare Advantage enrollees nationwide and raises questions about care access disparities in privatized Medicare.
 
 ## Methodology
-
-- Weighted analysis using the **CSPUFWGT** variable for valid population-level inference
-- Comparison of:
-  - Inpatient (IPAEVNTS)
-  - Medical provider (MPAEVNTS)
-  - Outpatient (OPAEVNTS)
-  - Prescription drug (PMAEVNTS) events
-- Stratification by:
-  - Income (`CSP_INCOME`)
-  - Plan type (`PAMTCARE`, `PAMTMADV`)
-  - Number of chronic conditions (`CSP_NCHRNCND`)
-
-## Files
-
-- `medicare_analysis_2022.ipynb`: Jupyter notebook with all code and findings
-- `cspuf2022.csv`: **Not included** — you must download from the official CMS repository
-
-## Key Findings (2022, Weighted)
-
-- **Poor seniors** pay significantly less OOP on average than richer seniors — likely due to dual-eligibility assistance
-- **MA enrollees consistently show fewer provider visits** than Traditional Medicare patients, even when controlling for chronic condition burden
-- MA populations skew younger and healthier
+- Data Source: MCBS 2022 Cost Supplement Public Use File (PUF)
+- Survey-weighted linear regression model
+- Outcome variable: `MPAEVNTS` (Medical Provider Events)
+- Covariates: `CSP_NCHRNCND`, `CSP_AGE`, `CSP_SEX`, `CSP_INCOME`
+- Plan flag: `plan_ma` (binary indicator for Medicare Advantage)
 
 ## Data Access
+The analysis uses publicly available data from the Centers for Medicare & Medicaid Services (CMS):
 
-To reproduce this analysis, download the 2022 CSPUF dataset from:
-- https://www.cms.gov/research-statistics-data-systems/medicare-current-beneficiary-survey-mcbs
+- **Dataset**: Medicare Current Beneficiary Survey (MCBS) 2022 Cost Supplement Public Use File  
+- **Download URL**: [CMS.gov MCBS Data Tables](https://www.cms.gov/Research-Statistics-Data-and-Systems/Research/MCBS/Data-Tables)
 
-## Author
+**Note:** Due to CMS data use restrictions, the dataset (`cspuf2022.csv`) is not included in this repository. Users must download the file directly from CMS and agree to the terms of use. Once downloaded, place the CSV in the `/data` folder to reproduce results.
 
-Micheal Beatty  
-Data analyst, public interest technologist, and healthcare transparency advocate.
+## Reproducibility
+To recreate the analysis:
+
+```bash
+# Create conda environment
+conda env create -f environment.yml
+conda activate medicare2022
+
+# Start Jupyter
+jupyter notebook
+```
+
+Open `medicare_analysis_2022.ipynb` and execute all cells.
+
+## Contents
+- `medicare_analysis_2022.ipynb`: Main analysis notebook
+- `environment.yml`: Python dependencies (including pandas, seaborn, statsmodels)
+- `LICENSE`: MIT license
+- `.gitignore`: Standard ignores for Jupyter and Python temp files
+
+## License
+MIT License — see `LICENSE` file for details.
+
+## Contact
+For questions or media inquiries, contact:  
+**Micheal Beatty**  
+"Data Quality Analyst specializing in healthcare policy research"
+
+[GitHub Profile](https://github.com/michealbeatty)
