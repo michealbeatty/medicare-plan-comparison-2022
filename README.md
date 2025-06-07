@@ -54,6 +54,6 @@ MIT License — see `LICENSE` file for details.
 ## Contact
 For questions or media inquiries, contact:  
 **Micheal Beatty**  
-"Data Quality Analyst specializing in healthcare policy research"
+Data Quality Analyst specializing in healthcare policy research
 
 [GitHub Profile](https://github.com/michealbeatty)
