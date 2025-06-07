@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Data files (sensitive or large)
+*.csv
+*.tsv
+*.xlsx
+*.dat
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Logs and outputs
+*.log
+*.out
+
+# Exported figures
+*.png
+*.svg
+*.pdf
+
+# Other
+*.bak

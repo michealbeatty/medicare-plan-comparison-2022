@@ -1,0 +1,10 @@
+name: medicare-analysis-env
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pandas
+  - matplotlib
+  - seaborn
+  - jupyter
+  - statsmodels
