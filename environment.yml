@@ -1,4 +1,4 @@
-name: medicare-analysis-env
+name: medicare2022
 channels:
   - defaults
 dependencies:
