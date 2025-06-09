@@ -10,6 +10,7 @@ This repository contains a reproducible analysis of the 2022 Medicare Current Be
   - Age group
   - Sex
   - Income level
+  - **Dual eligibility (Medicare + Medicaid):** Examined but excluded from final model due to lack of explanatory power.
 - Disparities persist **even among patients with multiple chronic conditions**, suggesting systemic differences in care delivery.
 - This finding affects approximately 27 million Medicare Advantage enrollees nationwide and raises questions about care access disparities in privatized Medicare.
 
